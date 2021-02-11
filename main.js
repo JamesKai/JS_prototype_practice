@@ -23,12 +23,14 @@ class Husky extends Dog{
     }
 }
 
-husky = new Husky('K')
+husky = new Husky('K') // initialize husky object 
 let huskyProto = Object.getPrototypeOf(husky) // pass in husky object
-console.log(huskyProto) // print out 'Dog {}' in the console
-//
-console.log('-------------------')
-// 
-let HuskyProto = Object.getPrototypeOf(Husky) // pass in Husky Class
-console.log(HuskyProto) // print out '[class Dog extends Animal]' in the console 
-console.log(Husky.prototype) // print out 'Dog {}' in the console
+
+console.log(Animal.prototype.constructor === Object.getPrototypeOf(Dog)) // true
+console.log(Dog.prototype.constructor === Object.getPrototypeOf(Husky)) // true 
+
+console.log(Husky.prototype.constructor === Object.getPrototypeOf(husky)) // false
+console.log(Husky.prototype === Object.getPrototypeOf(husky)) // true, both equal to 'Dog {}' 
+
+
+// reference:https://stackoverflow.com/questions/38740610/object-getprototypeof-vs-prototype
